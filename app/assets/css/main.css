@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Maiden+Orange&family=Righteous&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+.maiden-orange-font {
+  font-family: "Maiden Orange", serif;
+}
+
+.luckiest-guy-font {
+  font-family: "Luckiest Guy", cursive;
+}
+
+.righteous-font {
+  font-family: "Righteous", sans-serif;
+}
+
+.roboto-mono {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+}
+
+.outline-text {
+  position: relative;
+  display: inline-block;
+}
+
+.outline-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+  -3px -3px 0 #fff,
+  3px -3px 0 #fff,
+  -3px 3px 0 #fff,
+  3px 3px 0 #fff;
+}
