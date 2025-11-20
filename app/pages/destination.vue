@@ -1,29 +1,25 @@
 <template>
-    <Page header="Your mission" background="/img/bg_intro.png">
+    <Page background="/img/bg_intro.png">
+        <div class="space-y-2">
+            <div class="righteous-font text-xl text-white">
+                Choose Destination
+            </div>
+            <div class="roboto-mono-font text-sm text-white/65">
+                Each flight costs precious time. Choose wisely based on the clue!
+            </div>
+        </div>
         <div class="grid gap-4 w-full">
-            <AlertCard
-                simple
-                v-for="(mission, i) in missions"
-                v-bind="mission"
+            <ActionCard
+                v-for="(destination, i) in destinations"
+                v-bind="destination"
                 :key="i"
             />
         </div>
-        <ActionCard
-            v-for="(destination, i) in destinations"
-            v-bind="destination"
-            :key="i"
-        />
         <TipCard />
     </Page>
 </template>
 <script setup lang="ts">
 import ActionCard from '~/components/ActionCard.vue';
-
-const missions = [
-    { instruction: "Find Manny in 3 different countries", icon: 'icon_mission'},
-    { instruction: "Gather evidence at each location", icon: 'icon_mission'},
-    { instruction: "Find Manny before time runs out", icon: 'icon_mission'}
-]
 
 const destinations = [
     {
