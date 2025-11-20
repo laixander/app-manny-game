@@ -2,14 +2,23 @@
     <div class="relative flex items-center gap-4 p-6 text-white w-full bg-[#0F2059] rounded-xl shadow-xl shadow-white/10 box-shadow">
         <div class="space-y-2">
             <div class="righteous-font text-2xl flex items-center gap-4">
-                Paris
-                <span class="roboto-mono-font font-normal text-xs text-[#FCD34D]">8hr flight</span>
+                {{ destination }}
+                <span class="roboto-mono-font font-normal text-xs text-[#FCD34D]">{{ duration }}hr flight</span>
             </div>
-            <div class="roboto-mono-font text-sm text-white/65">City of Lights with the Eiffel Tower</div>
+            <div class="roboto-mono-font text-sm text-white/65">{{ description }}</div>
         </div>
-        <NuxtImg src="img/flag_france.svg" />
+        <NuxtImg :src="flag" class="w-16" />
     </div>
 </template>
+
+<script setup lang="ts">
+const props = defineProps<{
+    destination?: string
+    duration?: string
+    description?: string
+    flag?: string
+}>()
+</script>
 
 <style scoped>
 .box-shadow {
