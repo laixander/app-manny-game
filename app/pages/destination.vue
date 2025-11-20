@@ -8,12 +8,13 @@
                 :key="i"
             />
         </div>
-        <template #footer>
-            <DialogBox v-bind="dialog" />
-        </template>
+        <ActionCard />
+        <TipCard />
     </Page>
 </template>
 <script setup lang="ts">
+import ActionCard from '~/components/ActionCard.vue';
+
 const missions = [
     { instruction: "Find Manny in 3 different countries", icon: 'icon_mission'},
     { instruction: "Gather evidence at each location", icon: 'icon_mission'},
@@ -24,6 +25,6 @@ const dialog = {
     character: 'char_dionisia',
     speaker: 'Mommy Dionisia', 
     text: "Manny needs your help! He's gone missing just before his big fight." ,
-    to: '/destination'
+    to: '/'
 }
 </script>

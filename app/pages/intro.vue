@@ -1,8 +1,8 @@
 <template>
     <Page background="/img/bg_intro.png">
         <NuxtImg src="img/manny_logo.png" class="w-40" />
-        <InfoBox v-bind="intro" />
-        <AlertBox v-bind="clue" />
+        <InfoCard v-bind="intro" />
+        <AlertCard v-bind="clue" />
         <template #footer>
             <div class="p-6">
                 <Button />
