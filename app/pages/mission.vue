@@ -1,5 +1,5 @@
 <template>
-    <Page header="Your mission" background="/img/bg_intro.png">
+    <Page title="Your mission" background="/img/bg_intro.png">
         <div class="grid gap-4 w-full">
             <AlertCard
                 simple

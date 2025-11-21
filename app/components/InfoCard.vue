@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-4 p-6 rounded-lg
-           bg-gradient-to-t from-[#163084] to-[#0F2059]
+           bg-linear-to-t from-[#163084] to-[#0F2059]
            shadow-xl shadow-white/5">
         <div class="righteous-font text-2xl text-white text-center">
             {{ title }}

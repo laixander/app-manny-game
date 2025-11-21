@@ -2,7 +2,7 @@
     <div
         class="relative w-full rounded-lg bg-black/20 shadow-lg shadow-white/10
             overflow-hidden before:absolute before:block before:bg-[#FFA828]
-            before:w-1.5 before:h-full before:top-0 before:left-0"
+            before:w-1.5 before:h-full before:top-0 before:left-0 backdrop-blur-sm"
         :class="title ? 'flex flex-col gap-4 p-6' : 'p-4'"
     >
         <div v-if="!title" class="roboto-mono-font text-sm text-white flex items-center gap-2">

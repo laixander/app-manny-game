@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col items-center min-h-screen pt-12">
-        <div class="flex flex-col items-center gap-16 w-full bg-[url(/img/bg_ring.png)] bg-contain bg-no-repeat bg-bottom">
+    <div class="flex flex-col items-center min-h-screen pt-8">
+        <div class="flex flex-col items-center gap-12 w-full bg-[url(/img/bg_ring.png)] bg-contain bg-no-repeat bg-bottom">
             <div class="space-y-4">
                 <div class="maiden-orange-font text-white text-4xl text-center">
                     Where is
@@ -12,17 +12,17 @@
             <div>
                 <NuxtImg src="img/manny_logo.png" class="w-40" />
             </div>
-            <div class="w-full border-y-6 border-[#F89090] bg-[#EB3425] py-3.5 space-y-1.5">
+            <div class="w-full border-y-6 border-[#F89090] bg-[#EB3425] p-3.5 space-y-1.5">
                 <div class="righteous-font text-2xl text-white text-center uppercase">
                     Boxing Emergency!
                 </div>
-                <div class="righteous-font text-white text-center">
+                <div class="righteous-font text-white text-center text-pretty leading-6">
                     The Champion has disappeared before the big fight!
                 </div>
             </div>
         </div>
 
-        <div class="roboto-mono-font text-white text-sm text-center leading-6 px-6 py-8 my-auto">
+        <div class="roboto-mono-font text-white text-sm text-center text-pretty leading-6 p-6 my-auto">
             Can you find Manny?<br />
             Follow the clues around the boxing world!
         </div>
