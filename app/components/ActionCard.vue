@@ -2,11 +2,11 @@
     <ULink v-if="to" :to="to">
         <div class="relative flex items-center gap-4 p-6 text-white w-full bg-[#0F2059] rounded-xl shadow-xl shadow-white/10 box-shadow">
             <div class="space-y-2">
-                <div class="righteous-font text-2xl flex items-center gap-4">
+                <div class="righteous-font text-2xl text-white/80 flex items-center gap-4">
                     {{ destination }}
-                    <span class="roboto-mono-font font-normal text-xs text-[#FCD34D]">{{ duration }}hr flight</span>
+                    <span v-if="duration" class="roboto-mono-font font-normal text-xs text-[#FCD34D]">{{ duration }}hr flight</span>
                 </div>
-                <div class="roboto-mono-font text-sm text-start text-pretty text-white/65">{{ description }}</div>
+                <div v-if="description" class="roboto-mono-font text-sm text-start text-pretty text-white/65">{{ description }}</div>
             </div>
             <NuxtImg v-if="flag" :src="flag" class="w-16" />
         </div>

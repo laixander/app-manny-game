@@ -1,11 +1,17 @@
 <template>
-    <Page background="/img/bg_intro.png">
+    <Page
+        :background="{
+            src: 'img/bg_intro.png',
+            size: 'cover',
+            opacity: 0.7
+        }"
+    >
         <NuxtImg src="img/manny_logo.png" class="w-40" />
         <InfoCard v-bind="intro" />
         <AlertCard v-bind="clue" />
         <template #footer>
             <div class="p-6">
-                <Button />
+                <Button label="Next" />
             </div>
         </template>
     </Page>

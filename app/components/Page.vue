@@ -1,13 +1,37 @@
 <template>
     <div class="relative min-h-screen flex flex-col overflow-hidden text-white">
-        <div v-if="background" 
-            class="absolute inset-0 bg-cover bg-no-repeat bg-bottom opacity-70" 
-            :style="{
-                backgroundImage: `url('${background}')`
+
+        <!-- BACKGROUND IMAGE -->
+        <div 
+            v-if="background?.src" 
+            class="absolute inset-0 bg-no-repeat bg-top bg-center"
+            :class="{
+                'bg-cover': background.size === 'cover',
+                'bg-contain': background.size === 'contain',
+                'bg-size-[auto_calc(100vh-50%)]': background.size === 'half',
             }"
-        >
-        </div>
-        <!-- content -->
+            :style="{
+                backgroundImage: `url('${background.src}')`,
+                opacity: background.opacity ?? 0.7
+            }"
+        ></div>
+
+        <!-- OPTIONAL BACKGROUND BLUR -->
+        <div
+            v-if="background?.blur"
+            class="absolute inset-0 pointer-events-none"
+            :style="{
+                backdropFilter: `blur(${background.blur}px)`
+            }"
+        ></div>
+
+        <!-- OPTIONAL GRADIENT OVERLAY -->
+        <div 
+            v-if="background?.overlay" 
+            class="absolute w-full h-82 bg-linear-to-b from-[#092C59]/90 to-transparent"
+        ></div>
+
+        <!-- CONTENT -->
         <div class="relative z-20 flex flex-col items-center gap-8 py-8 px-6">
             <div v-if="title" class="righteous-font text-4xl text-white text-center">
                 {{ title }}
@@ -18,16 +42,19 @@
         <div class="flex flex-col mt-auto z-10">
             <slot name="footer"></slot>
         </div>
+
     </div>
 </template>
+
 <script setup lang="ts">
 const props = defineProps<{
     title?: string
-    background?: string
+    background?: {
+        src: string
+        size?: string        // 'cover' | 'contain' | 'half'
+        opacity?: number
+        overlay?: boolean
+        blur?: number        // <--- NEW (pixels)
+    }
 }>()
-
-// const {
-//     title = "Your mission",
-//     background = '/img/bg_intro.png'
-// } = props
 </script>

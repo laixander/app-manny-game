@@ -1,10 +1,11 @@
 <template>    
     <div class="relative flex flex-col">
-        <NuxtImg :src="'img/' + character + '.png'" class="ml-auto w-50" />
-        <div class="absolute bottom-0 flex flex-col p-6 min-h-50 border-t-4 border-[#FFA828] bg-black/20 backdrop-blur-2xl">
+        <div class="absolute bottom-0 bg-[#113E79] w-full min-h-50"></div>
+        <NuxtImg :src="'img/' + character + '.png'" class="ml-auto w-50 z-10" />
+        <div class="absolute z-20 bottom-0 flex flex-col p-6 w-full min-h-50 border-t-4 border-[#FFA828] bg-black/20 backdrop-blur-2xl">
             <!-- Speaker Label -->
             <div class="absolute -top-9 left-0 righteous-font text-[#FFA828]
-                 bg-[#FFA828]/20 px-3 py-1 rounded-tr-md inline-block">
+                 bg-[#4D3107]/50 px-3 py-1 rounded-tr-md inline-block">
                 {{ speaker }}
             </div>
             <!-- Message Body -->

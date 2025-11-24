@@ -1,5 +1,11 @@
 <template>
-    <Page background="/img/bg_destination.png">
+    <Page 
+        :background="{
+            src: '/img/bg_destination.png',
+            size: 'contain',
+            opacity: 0.7
+        }"
+    >
         <Timer time="16:00" />
         <Heading title="Choose Destination" description="Each flight costs precious time. Choose wisely based on the clue!" />
         <div class="grid gap-4 w-full">
@@ -10,13 +16,14 @@
             />
         </div>
         <template #footer>
-            <TipCard />
+            <TipBox 
+                title="💡 Detective Tip" 
+                description="Pay attention to the clue! &ldquo;Big Ben&rdquo; is a famous landmark. Which city would have the strongest connection?" 
+            />
         </template>
     </Page>
 </template>
 <script setup lang="ts">
-import ActionCard from '~/components/ActionCard.vue';
-
 const destinations = [
     {
         destination: "Paris",

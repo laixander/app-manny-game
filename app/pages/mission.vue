@@ -1,5 +1,12 @@
 <template>
-    <Page title="Your mission" background="/img/bg_intro.png">
+    <Page 
+        title="Your mission" 
+        :background="{
+            src: 'img/bg_intro.png',
+            size: 'cover',
+            opacity: 0.7
+        }"
+    >
         <div class="grid gap-4 w-full">
             <AlertCard
                 simple
