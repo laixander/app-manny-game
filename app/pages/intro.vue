@@ -11,7 +11,7 @@
         <AlertCard v-bind="clue" />
         <template #footer>
             <div class="p-6">
-                <Button label="Next" />
+                <Button label="Next" to="/mission" />
             </div>
         </template>
     </Page>

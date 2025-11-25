@@ -18,7 +18,7 @@
         <template #footer>
             <TipBox 
                 title="💡 Detective Tip" 
-                description="Pay attention to the clue! &ldquo;Big Ben&rdquo; is a famous landmark. Which city would have the strongest connection?" 
+                text="Pay attention to the clue! &ldquo;Big Ben&rdquo; is a famous landmark. Which city would have the strongest connection?" 
             />
         </template>
     </Page>
@@ -30,21 +30,21 @@ const destinations = [
         duration: "8",
         description: "City of Lights with the Eiffel Tower",
         flag: "img/flag_france.svg",
-        to: "/investigate"
+        to: "/destination/paris"
     },
     {
         destination: "London",
         duration: "12",
         description: "Home of Big Ben and the tower of London",
         flag: "img/flag_uk.svg",
-        to: "/investigate"
+        to: "/destination/london"
     },
     {
         destination: "Florence",
         duration: "14",
         description: "Renaissance city with ancient architecture",
         flag: "img/flag_italy.svg",
-        to: "/investigate"
+        to: "/destination/florence"
     }, 
 ]
 </script>

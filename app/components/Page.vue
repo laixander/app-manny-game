@@ -4,17 +4,20 @@
         <!-- BACKGROUND IMAGE -->
         <div 
             v-if="background?.src" 
-            class="absolute inset-0 bg-no-repeat bg-top bg-center"
+            class="absolute w-full bg-no-repeat bg-top bg-center page-background-transition"
             :class="{
                 'bg-cover': background.size === 'cover',
                 'bg-contain': background.size === 'contain',
-                'bg-size-[auto_calc(100vh-50%)]': background.size === 'half',
+                'bg-size-[auto_calc(100vh-25%)]': background.size === 'half',
             }"
             :style="{
+                height: background.height ? background.height : '100%',
                 backgroundImage: `url('${background.src}')`,
                 opacity: background.opacity ?? 0.7
             }"
         ></div>
+
+
 
         <!-- OPTIONAL BACKGROUND BLUR -->
         <div
@@ -51,10 +54,20 @@ const props = defineProps<{
     title?: string
     background?: {
         src: string
-        size?: string        // 'cover' | 'contain' | 'half'
+        size?: string
         opacity?: number
         overlay?: boolean
-        blur?: number        // <--- NEW (pixels)
+        blur?: number
+        height?: string | number   // <-- ADD THIS
     }
 }>()
 </script>
+
+<style scoped>
+.page-background-transition {
+    transition: 
+        opacity 0.5s ease,
+        filter 0.5s ease,
+        height 0.5s ease;
+}
+</style>

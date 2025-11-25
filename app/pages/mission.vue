@@ -16,7 +16,7 @@
             />
         </div>
         <template #footer>
-            <DialogBox v-bind="dialog" />
+            <DialogBox v-bind="dialog" @continue="navigateToNext" />
         </template>
     </Page>
 </template>
@@ -28,9 +28,12 @@ const missions = [
 ]
 
 const dialog = {
-    character: 'char_dionisia',
+    character: 'dionisia',
     speaker: 'Mommy Dionisia', 
     text: "Manny needs your help! He's gone missing just before his big fight." ,
-    to: '/destination'
+}
+
+const navigateToNext = () => {
+    navigateTo('/destination'); // 👈 your next page
 }
 </script>

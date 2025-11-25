@@ -18,23 +18,3 @@
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
 }
-
-.outline-text {
-  position: relative;
-  display: inline-block;
-}
-
-.outline-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  text-shadow:
-  -3px -3px 0 #fff,
-  3px -3px 0 #fff,
-  -3px 3px 0 #fff,
-  3px 3px 0 #fff;
-}
