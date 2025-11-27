@@ -5,7 +5,7 @@
         opacity: 1,
         overlay: true
     }">
-        <Timer time="16:00" label="Exploring" destination="London" />
+        <Timer label="Exploring" destination="London" />
         <template #footer>
             <Drawer title="Investigate Place" titleClass="p-6">
                 <div class="grid gap-4 w-full mb-8 px-6">

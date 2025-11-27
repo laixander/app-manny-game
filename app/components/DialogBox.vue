@@ -2,7 +2,7 @@
     <div class="relative flex flex-col">
         <div class="absolute bottom-0 bg-[#113E79] w-full min-h-50"></div>
         <NuxtImg v-if="character" :src="'img/char_' + character + '.png'"
-            class="ml-auto w-50 z-10 transform transition-all duration-500 ease-out" :class="{
+            class="ml-auto w-80 z-10 transform transition-all duration-500 ease-out" :class="{
                 'translate-x-0 opacity-100': showCharacter,
                 'translate-x-12 opacity-0': !showCharacter
             }" />

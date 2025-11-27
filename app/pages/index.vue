@@ -28,12 +28,12 @@
         </div>
 
         <div class="relative w-full">
-            <div class="absolute top-10 inset-0 bg-[url(/img/bg_ellipse.svg)] bg-size-[500px] bg-no-repeat bg-top"></div>
-             <div class="relative flex items-center justify-center -space-x-1.5 z-10">
+            <div class="absolute top-16 inset-0 bg-[url(/img/bg_ellipse.svg)] bg-size-[500px] bg-no-repeat bg-top"></div>
+             <div class="relative text-center -space-x-1.5 z-10">
                 <UButton icon="i-ri-trophy-fill" size="lg" :ui="{ base: 'rounded-full p-6', leadingIcon: 'size-6', }"
                     class="border-14 border-[#113E79] bg-[#FFA828] ring-6 ring-inset ring-[#FFD393] hover:bg-[#ff9610] active:bg-[#ff9610] transition-colors" />
                 <UButton icon="i-ic-round-play-arrow" size="lg" :ui="{ base: 'rounded-full p-4', leadingIcon: 'size-18', }"
-                    class="border-14 border-[#113E79] bg-[#FFA828] ring-6 ring-inset ring-[#FFD393] hover:bg-[#ff9610] active:bg-[#ff9610] transition-colors" to="/intro" />
+                    class="border-14 border-[#113E79] bg-[#FFA828] ring-6 ring-inset ring-[#FFD393] hover:bg-[#ff9610] active:bg-[#ff9610] transition-colors" to="/mission" />
                 <UButton icon="i-ri-settings-3-fill" size="lg" :ui="{ base: 'rounded-full p-6', leadingIcon: 'size-6', }"
                     class="border-14 border-[#113E79] bg-[#FFA828] ring-6 ring-inset ring-[#FFD393] hover:bg-[#ff9610] active:bg-[#ff9610] transition-colors" />
             </div>

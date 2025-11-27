@@ -9,7 +9,7 @@
             height: showDialog ? '100vh' : '75vh'
         }"
     >
-        <Timer time="16:00" label="You Selected" destination="Tower Bridge" />
+        <Timer label="You Selected" destination="Tower Bridge" />
 
         <template #footer>
 

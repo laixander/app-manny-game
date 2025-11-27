@@ -13,7 +13,7 @@
                 <UIcon name="i-lucide-clock" class="text-red-800 flex shrink-0" />
             </div>
             <div class="roboto-mono-font text-white">
-                {{ time }}
+                {{ formatted }}
             </div>
         </div>
     </div>
@@ -22,6 +22,8 @@
 const props = defineProps<{
     label?: string
     destination?: string
-    time?: string
 }>()
+
+const { remaining } = useCountdown(3)
+const formatted = useCountdownFormat(remaining)
 </script>

@@ -3,7 +3,7 @@
         <div class="roboto-mono-font text-xs text-white uppercase mb-4">
             {{ title }}
         </div>
-        <div class="roboto-mono-font text-sm text-white/65 whitespace-pre-line">
+        <div class="roboto-mono-font text-sm text-pretty text-white/65 whitespace-pre-line">
             {{ displayed }}
         </div>
     </div>

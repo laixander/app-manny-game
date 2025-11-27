@@ -6,7 +6,7 @@
             opacity: 0.7
         }"
     >
-        <Timer time="16:00" />
+        <Timer />
         <Heading title="Choose Destination" description="Each flight costs precious time. Choose wisely based on the clue!" />
         <div class="grid gap-4 w-full">
             <ActionCard
