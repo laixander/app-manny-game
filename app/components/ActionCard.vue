@@ -8,7 +8,7 @@
                 </div>
                 <div v-if="description" class="roboto-mono-font text-sm text-start text-pretty text-white/65">{{ description }}</div>
             </div>
-            <NuxtImg v-if="flag" :src="flag" class="w-16" />
+            <NuxtImg v-if="flag" :src="flag" class="w-16 shrink-0" />
         </div>
     </ULink>
 </template>

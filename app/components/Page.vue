@@ -2,20 +2,22 @@
     <div class="relative min-h-screen flex flex-col overflow-hidden text-white">
 
         <!-- BACKGROUND IMAGE -->
-        <div 
-            v-if="background?.src" 
-            class="absolute w-full bg-no-repeat bg-top bg-center page-background-transition"
-            :class="{
-                'bg-cover': background.size === 'cover',
-                'bg-contain': background.size === 'contain',
-                'bg-size-[auto_calc(100vh-25%)]': background.size === 'half',
-            }"
-            :style="{
-                height: background.height ? background.height : '100%',
-                backgroundImage: `url('${background.src}')`,
-                opacity: background.opacity ?? 0.7
-            }"
-        ></div>
+        <slot name="background">
+            <div 
+                v-if="background?.src" 
+                class="absolute w-full bg-no-repeat bg-top bg-center page-background-transition"
+                :class="{
+                    'bg-cover': background.size === 'cover',
+                    'bg-contain': background.size === 'contain',
+                    'bg-size-[auto_calc(100vh-25%)]': background.size === 'half',
+                }"
+                :style="{
+                    height: background.height ? background.height : '100%',
+                    backgroundImage: `url('${background.src}')`,
+                    opacity: background.opacity ?? 0.7
+                }"
+            ></div>
+        </slot>
 
 
 

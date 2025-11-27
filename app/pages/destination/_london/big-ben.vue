@@ -124,7 +124,7 @@ const showDetective = () => {
 
 // After detective dialog Continue
 const goToNextDestination = () => {
-    navigateTo('/destination')
+    navigateTo('/destination/asia')
 }
 </script>
 

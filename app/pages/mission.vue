@@ -132,7 +132,7 @@ const onMissionClick = () => {
     return
   }
   if (clickCount.value === 6) {
-    navigateTo('/destination')
+    navigateTo('/destination/europe')
     return
   }
 }
