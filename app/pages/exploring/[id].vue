@@ -23,11 +23,17 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 
+interface Dataset {
+    city: string
+    background: string
+    places: { destination: string; to: string }[]
+    tip: { title: string; text: string }
+}
+
 const route = useRoute()
 const cityId = route.params.id as string
 
-// Multiple datasets for different cities
-const datasets: Record<string, { city: string, background: string, places: any[], tip: { title: string, text: string } }> = {
+const datasets: Record<string, Dataset> = {
     london: {
         city: "London",
         background: "/img/des_london.png",
@@ -41,6 +47,7 @@ const datasets: Record<string, { city: string, background: string, places: any[]
             text: "Visit different locations and gather intelligence. One of these locations contains valuable intel that will help you track Manny to his next destination."
         }
     },
+
     paris: {
         city: "Paris",
         background: "/img/des_paris.png",
@@ -54,6 +61,7 @@ const datasets: Record<string, { city: string, background: string, places: any[]
             text: "Explore the landmarks carefully! One location has crucial clues about Manny's whereabouts."
         }
     },
+
     florence: {
         city: "Florence",
         background: "/img/des_florence.png",
@@ -66,9 +74,23 @@ const datasets: Record<string, { city: string, background: string, places: any[]
             title: "💡 Mission Tips",
             text: "Check all the neighborhoods. One of them holds important information about Manny's next move."
         }
+    },
+
+    philippines: {
+        city: "Manila",
+        background: "/img/des_philippines.png",
+        places: [
+            { destination: "Luneta Park", to: "/selected/luneta" },
+            { destination: "National Museum", to: "/selected/museum" },
+            { destination: "Boxing Gym", to: "/selected/gym" }
+        ],
+        tip: {
+            title: "💡 Mission Tips",
+            text: "Check all the neighborhoods. One of them holds important information about Manny's next move."
+        }
     }
 }
 
-// Pick the dataset based on route or fallback to London
-const currentDataset = datasets[cityId] || datasets.london
+// ✔ guaranteed Dataset, no TS error
+const currentDataset: Dataset = (datasets[cityId] ?? datasets.london) as Dataset
 </script>

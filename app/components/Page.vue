@@ -5,7 +5,7 @@
         <slot name="background">
             <div 
                 v-if="background?.src" 
-                class="absolute w-full bg-no-repeat bg-top bg-center page-background-transition"
+                class="absolute w-full bg-no-repeat bg-top page-background-transition"
                 :class="{
                     'bg-cover': background.size === 'cover',
                     'bg-contain': background.size === 'contain',

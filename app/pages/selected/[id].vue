@@ -19,7 +19,7 @@
                     <ClueCard v-bind="currentPlace.majorClue || currentPlace.noClue || currentPlace.minorClue"
                         @finished="clueFinished = true" :variant="currentPlace.majorClue ? 'major' : undefined" />
 
-                    <div class="grid gap-4 mt-16 min-h-[120px]">
+                    <div class="flex flex-col gap-4 justify-end mt-16 min-h-[120px]">
                         <template v-if="clueFinished">
                             <Button v-for="btn in currentPlace.buttons || []" :key="btn.label" :label="btn.label"
                                 :variant="btn.variant || 'primary'" :to="btn.to"
@@ -159,7 +159,7 @@ const places: Record<string, any> = {
         },
         minorClue: { title: '🔍 Clue Discovered', text: 'Visitors whispered: “Next stop Paris…”' },
         buttons: [
-            { label: 'Continue Exploring', to: '/exploring/paris' },
+            { label: 'Continue Exploring', to: '/exploring/florence' },
             { label: 'Return', variant: 'white', to: '/destination/europe' }
         ]
     },
@@ -180,10 +180,10 @@ const places: Record<string, any> = {
     duomo: {
         destination: 'Florence Duomo',
         background: '/img/pl_duomo.png',
-        minorClue: { title: '🔍 Clue Discovered', text: 'A visitor hinted: “Paris seems to be the next city to check.”' },
+        minorClue: { title: '🔍 Clue Discovered', text: 'A visitor hinted: “London seems to be the next city to check.”' },
         dialogs: {
-            local: { character: 'john', speaker: 'John', text: 'I heard something about Florence pointing to Paris.' },
-            detective: { character: 'detective', speaker: 'Detective', text: 'Our first clue points to Paris… onward we go!' }
+            local: { character: 'john', speaker: 'John', text: 'I heard something about Florence pointing to London.' },
+            detective: { character: 'detective', speaker: 'Detective', text: 'Our first clue points to London… onward we go!' }
         },
         buttons: [
             {
@@ -197,8 +197,58 @@ const places: Record<string, any> = {
             },
             { label: 'Return', variant: 'white', to: '/destination/europe' }
         ],
-        nextDestination: '/exploring/paris'
-    }
+        nextDestination: '/exploring/london'
+    },
+
+    luneta: {
+        destination: 'Luneta Park',
+        background: '/img/pl_luneta.png',
+        dialogs: {
+            local: { character: 'taxidriver', speaker: 'Taxi Driver', text: 'Lots of tourists, no boxers today. Keep your eyes open!' }
+        },
+        noClue: { title: '❌ No Clue Found', text: 'The taxi driver shrugs. “Sorry mate, haven’t seen anything suspicious.”' },
+        buttons: [
+            { label: 'Continue Exploring', to: '/exploring/london' },
+            { label: 'Return', variant: 'white', to: '/destination/europe' }
+        ]
+    },
+
+    museum: {
+        destination: 'National Museum',
+        background: '/img/pl_museum.png',
+        dialogs: {
+            local: { character: 'photographer', speaker: 'Photographer', text: 'Only royals here, no peeking allowed!' }
+        },
+        noClue: { title: '❌ No Clue Found', text: 'The photographer shakes his head. “Nothing to see, move along!”' },
+        buttons: [
+            { label: 'Continue Exploring', to: '/exploring/london' },
+            { label: 'Return', variant: 'white', to: '/destination/europe' }
+        ]
+    },
+
+    gym: {
+        destination: 'Boxing Gym',
+        background: '/img/pl_gym.png',
+        hasClue: { title: '🔍 Clue Discovered', text: 'Someone mentioned a land of warriors and sunshine.' },
+        majorClue: { title: '🔍 Major Clue Discovered', text: 'All hints point to the Philippines—ancient warriors, sunny beaches, and paradise awaits!' },
+        dialogs: {
+            witness: { character: 'manny', speaker: 'Manny', text: 'Dialog of Manny Pacman' },
+            detective: { character: 'detective', speaker: 'Detective', text: 'This is it… the major lead points to the Philippines.' }
+        },
+        buttons: [
+            {
+                label: 'Continue',
+                onClick: () => {
+                    showDrawer.value = false
+                    setTimeout(() => {
+                        showDetectiveDialog.value = true
+                    }, 200)
+                }
+            },
+            // { label: 'Return', variant: 'white', to: '/destination/europe' }
+        ],
+        nextDestination: '/complete'
+    },
 }
 
 // Current place
