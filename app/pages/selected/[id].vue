@@ -15,9 +15,9 @@
 
             <!-- Drawer -->
             <Transition name="drawer-slide-up">
-                <Drawer v-if="showDrawer" title="Clue Discoveries" wrapperClass="p-6 space-y-6">
-                    <ClueCard v-bind="currentPlace.majorClue || currentPlace.noClue || currentPlace.minorClue"
-                        @finished="clueFinished = true" :variant="currentPlace.majorClue ? 'major' : undefined" />
+                <Drawer v-if="showDrawer" :title="currentPlace.drawerTitle || 'Clue Discoveries'" wrapperClass="p-6 space-y-6">
+                    <ClueCard v-bind="currentPlace.majorClue || currentPlace.noClue || currentPlace.minorClue || currentPlace.found"
+                        @finished="clueFinished = true" :variant="currentPlace.majorClue || currentPlace.found ? 'major' : undefined" />
 
                     <div class="flex flex-col gap-4 justify-end mt-16 min-h-[120px]">
                         <template v-if="clueFinished">
@@ -229,33 +229,41 @@ const places: Record<string, any> = {
     gym: {
         destination: 'Boxing Gym',
         background: '/img/pl_gym.png',
-        hasClue: { title: '🔍 Clue Discovered', text: 'Someone mentioned a land of warriors and sunshine.' },
-        majorClue: { title: '🔍 Major Clue Discovered', text: 'All hints point to the Philippines—ancient warriors, sunny beaches, and paradise awaits!' },
+        drawerTitle: 'Case closed!',
+        found: {
+            title: '🎉 You Found Manny!',
+            text: 'After following every clue, every lead, and every twist… you’ve finally tracked Manny to the boxing gym. He’s here training hard for his upcoming fight!'
+        },
         dialogs: {
-            witness: { character: 'manny', speaker: 'Manny', text: 'Dialog of Manny Pacman' },
-            detective: { character: 'detective', speaker: 'Detective', text: 'This is it… the major lead points to the Philippines.' }
+            manny: {
+                character: 'manny',
+                speaker: 'Manny',
+                text: 'Whoa! Detective—you’re incredible! You actually found me! I thought for sure you’d get thrown off by all those clues.'
+            },
+            detective: {
+                character: 'detective',
+                speaker: 'Detective',
+                text: 'Case closed! You led us across cities, cracked clues, and followed trails like a true master detective. This is definitely worth celebrating!'
+            }
         },
         buttons: [
             {
                 label: 'Continue',
                 onClick: () => {
                     showDrawer.value = false
-                    setTimeout(() => {
-                        showDetectiveDialog.value = true
-                    }, 200)
+                    setTimeout(() => (showDetectiveDialog.value = true), 200)
                 }
-            },
-            // { label: 'Return', variant: 'white', to: '/destination/europe' }
+            }
         ],
         nextDestination: '/complete'
-    },
+    }
 }
 
 // Current place
 const currentPlace = places[placeId] || places.towerbridge
 
 const currentDialog = computed(() => {
-    if (showDialog.value) return currentPlace.dialogs?.local
+    if (showDialog.value) return currentPlace.dialogs?.local || currentPlace.dialogs?.manny
     if (showWitnessDialog.value) return currentPlace.dialogs?.witness
     if (showDetectiveDialog.value) return currentPlace.dialogs?.detective
     return null

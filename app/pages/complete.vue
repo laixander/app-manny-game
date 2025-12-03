@@ -74,7 +74,7 @@
 
         <template #footer>
             <div class="p-6">
-                <Button label="Play Again" />
+                <Button label="Play Again" to="/" />
             </div>
         </template>
     </Page>

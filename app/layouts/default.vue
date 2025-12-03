@@ -5,9 +5,11 @@
             <div class="min-h-screen bg-[#113E79] relative size-full">
                 <!-- <Header /> -->
                 <slot />
+                <BackgroundAudio />
             </div>
         </div>
     </div>
 </template>
 <script setup lang="ts">
+// logic goes here..
 </script>
