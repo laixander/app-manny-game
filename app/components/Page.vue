@@ -38,13 +38,13 @@
 
         <!-- CONTENT -->
         <div class="relative z-20 flex flex-col items-center gap-8 py-8 px-6">
-            <div v-if="title" class="righteous-font text-4xl text-white text-center">
+            <div v-if="title" class="z-50 righteous-font text-4xl text-white text-center">
                 {{ title }}
             </div>
             <slot></slot>
         </div>
 
-        <div class="flex flex-col mt-auto z-10">
+        <div class="flex flex-col mt-auto z-20">
             <slot name="footer"></slot>
         </div>
 
