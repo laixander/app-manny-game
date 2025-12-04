@@ -39,6 +39,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const showButton = ref(false)       // controls button appearance
 const showModal = ref(false)  // controls modal visibility
@@ -68,6 +71,8 @@ const toggleSound = async () => {
 
 // --- Delayed appearance ---
 onMounted(() => {
+    // Only run audio logic on Index page
+    if (route.path !== '/') return
     const stored = localStorage.getItem('soundPreference')
     if (stored === 'enabled') {
         startPlayback()

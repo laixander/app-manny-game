@@ -1,7 +1,8 @@
 <template>
-    <div 
-        class="relative w-full flex flex-col gap-4 p-6 rounded-lg bg-linear-to-t from-[#163084] to-[#0F2059] shadow-xl shadow-white/5 overflow-hidden"
-    >
+    <div class="relative w-full flex flex-col gap-4 p-6 rounded-lg shadow-xl shadow-white/5 overflow-hidden" :class="[
+        !bgColor && 'bg-linear-to-t from-[#163084] to-[#0F2059]',
+        bgColor
+    ]">
         <div v-if="title" class="righteous-font text-2xl text-center text-white">
             {{ title }}
         </div>
@@ -16,6 +17,7 @@
 const props = defineProps<{
     title?: string
     description?: string
+    bgColor?: string
 }>()
 
 const emit = defineEmits(["finished"])   // ← ADD THIS
